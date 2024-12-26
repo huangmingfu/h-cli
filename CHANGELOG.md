@@ -1,5 +1,11 @@
 # hmf-cli
 
+## 1.0.6
+
+### Patch Changes
+
+- 更改 select 项目描述文案颜色
+
 ## 1.0.5
 
 ### Patch Changes

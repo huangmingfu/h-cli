@@ -27,7 +27,7 @@ async function create(projectName: string, options: { template?: string }): Prom
         name: 'template',
         message: '请选择项目模板:',
         choices: templates.map((t) => ({
-          name: t.name + ` (${chalk.green(t.description)})`,
+          name: t.name + ` (${chalk.yellow(t.description)})`,
           value: t.value,
         })),
       },
