@@ -1,5 +1,11 @@
 # hmf-cli
 
+## 1.0.5
+
+### Patch Changes
+
+- 修复 pkgjson 找不到问题
+
 ## 1.0.4
 
 ### Patch Changes
