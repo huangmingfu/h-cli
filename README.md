@@ -3,6 +3,12 @@
 npm install -g hmf-cli
 ```
 
+## 直接使用 npx 一次性使用
+```sh
+npx hmf-cli create
+npx hmf-cli list
+```
+
 ## 交互式选择模板
 ```sh
 hmf-cli create  

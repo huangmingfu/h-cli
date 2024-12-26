@@ -1,7 +1,7 @@
 {
   "name": "hmf-cli",
   "description": "hmf-cli 一个快捷创建完整模板项目的命令行工具",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "type": "module",
   "main": "dist/bin/index.js",
   "bin": {
@@ -9,9 +9,12 @@
   },
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "dev": "node ./dist/bin/index.js",
+    "hmf-cli": "node ./dist/bin/index.js",
     "clean": "rm -rf dist && rm -rf node_modules",
-    "publish": "pnpm publish"
+    "publish": "pnpm publish",
+    "change:version": "pnpm changeset && pnpm changeset version",
+    "prepublishOnly": "pnpm run build",
+    "preinstall": "npx only-allow pnpm"
   },
   "files": [
     "dist",
@@ -43,6 +46,7 @@
     "ora": "^8.1.1"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.11",
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^22.10.2",
