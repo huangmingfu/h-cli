@@ -1,10 +1,18 @@
+// 文件系统操作的增强模块，提供额外的文件系统方法
 import fs from 'fs-extra';
-import path from 'path';
+// Node.js 内置路径处理模块，用于处理文件和目录路径
+import path from 'node:path';
+// 交互式命令行用户界面，用于创建命令行交互提示
 import inquirer from 'inquirer';
+// 终端字符串样式库，用于在命令行中添加颜色和样式
 import chalk from 'chalk';
+// 从 Git 仓库下载代码的工具库
 import download from 'download-git-repo';
+// 命令行加载动画/进度指示器
 import ora from 'ora';
+// 可能是预定义的项目模板配置
 import templates from './templates.js';
+// Node.js 子进程模块，用于执行系统命令
 import { execSync } from 'node:child_process';
 
 function downloadRepo(repo: string, dest: string): Promise<void> {

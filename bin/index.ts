@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+// Commander.js 命令行解析工具，用于创建命令行界面和处理命令参数
 import { program } from "commander";
 import chalk from "chalk";
 import inquirer from "inquirer";
