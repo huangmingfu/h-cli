@@ -1,10 +1,28 @@
 #!/usr/bin/env node
 
 import { program } from "commander";
-import create from "../lib/create.js"; // 显式添加 .js 后缀，不然tsc编译后的代码会报错
 import chalk from "chalk";
-import templates from "../lib/templates.js";
 import inquirer from "inquirer";
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+import fs from 'node:fs';
+
+import templates from "../lib/templates.js";
+import create from "../lib/create.js"; // 显式添加 .js 后缀，不然tsc编译后的代码会报错
+
+// 获取当前模块的目录
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// 读取 package.json
+const packageJsonPath = join(__dirname, './package.json');
+const packageJson = JSON.parse(
+  fs.readFileSync(packageJsonPath, 'utf8')
+);
+
+program
+  .version(packageJson.version, '-v, --version', 'output the current version')
+  .parse(process.argv);
 
 program
   .command("create [project-name]")

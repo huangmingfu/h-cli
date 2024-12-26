@@ -37,7 +37,7 @@ export default [
     type: 'react-mobile'
   },
   {
-    name: 'vue3组件库模板',
+    name: 'vue3 组件库模板',
     value: 'github:huangmingfu/vue3-turbo-component-lib-template',
     description: des('vue3.5 + monorepo + turbo + rollup'),
     type: 'vue-lib'

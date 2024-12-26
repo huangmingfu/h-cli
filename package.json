@@ -1,7 +1,7 @@
 {
   "name": "hmf-cli",
   "description": "hmf-cli 一个快捷创建完整模板项目的命令行工具",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "main": "dist/bin/index.js",
   "bin": {
@@ -15,8 +15,9 @@
   },
   "files": [
     "dist",
-    "lib",
-    "bin"
+    "package.json",
+    "README.md",
+    "LICENSE"
   ],
   "keywords": [
     "template",
