@@ -1,0 +1,48 @@
+{
+  "name": "h-cli",
+  "description": "h-cli 一个快捷创建完整模板项目的命令行工具",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/bin/index.js",
+  "bin": {
+    "h-cli": "./dist/bin/index.js"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "dev": "node ./dist/bin/index.js",
+    "clean": "rm -rf dist && rm -rf node_modules"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "keywords": [
+    "template",
+    "cli",
+    "template app"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huangmingfu/h-cli.git"
+  },
+  "bugs": "https://github.com/huangmingfu/h-cli/issues",
+  "author": "huangmingfu <212149997@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^12.1.0",
+    "download-git-repo": "^3.0.2",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^12.3.0",
+    "ora": "^8.1.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}
