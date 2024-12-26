@@ -1,16 +1,17 @@
 {
-  "name": "h-cli",
-  "description": "h-cli 一个快捷创建完整模板项目的命令行工具",
+  "name": "hmf-cli",
+  "description": "hmf-cli 一个快捷创建完整模板项目的命令行工具",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/bin/index.js",
   "bin": {
-    "h-cli": "./dist/bin/index.js"
+    "hmf-cli": "./dist/bin/index.js"
   },
   "scripts": {
     "build": "rm -rf dist && tsc",
     "dev": "node ./dist/bin/index.js",
-    "clean": "rm -rf dist && rm -rf node_modules"
+    "clean": "rm -rf dist && rm -rf node_modules",
+    "publish": "pnpm publish"
   },
   "files": [
     "lib",

@@ -1,13 +1,15 @@
 # 全局安装
-npm install -g h-cli
+npm install -g hmf-cli
 
 # 交互式选择模板
-h-cli create my-project
+hmf-cli create
+// or
+hmf-cli create my-project
 
 # 直接指定模板类型（type）
-h-cli create my-project -t react
+hmf-cli create my-project -t react
 // or
-h-cli create my-project --template react
+hmf-cli create my-project --template react
 
 # 列出所有可用模板
-h-cli list
+hmf-cli list
