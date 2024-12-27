@@ -1,5 +1,11 @@
 # hmf-cli
 
+## 1.0.7
+
+### Patch Changes
+
+- 修复 --template 模板命令问题，新增其他第三方开源模板
+
 ## 1.0.6
 
 ### Patch Changes

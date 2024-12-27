@@ -17,7 +17,7 @@ import { execSync } from 'node:child_process';
 
 function downloadRepo(repo: string, dest: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    download(repo, dest, { clone: false }, (err: any) => {
+    download(repo, dest, { clone: true }, (err: any) => {
       if (err) reject(err);
       else resolve();
     });
@@ -27,6 +27,24 @@ function downloadRepo(repo: string, dest: string): Promise<void> {
 async function create(projectName: string, options: { template?: string }): Promise<void> {
   // 如果没有指定模板，则交互式选择
   let selectedTemplate: string;
+
+  // 如果没有传入项目名称，则交互式询问
+  if (!projectName) {
+    const { inputProjectName } = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'inputProjectName',
+        message: '项目名称:',
+        validate: (input) => {
+          // 校验项目名称
+          if (!input) return '项目名称不能为空';
+          if (!/^[a-z0-9-]+$/.test(input)) return '项目名称只能包含小写字母、数字和连字符';
+          return true;
+        }
+      }
+    ]);
+    projectName = inputProjectName;
+  }
 
   if (!options.template) {
     const { template } = await inquirer.prompt([

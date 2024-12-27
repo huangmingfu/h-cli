@@ -1,19 +1,17 @@
 #!/usr/bin/env node
 
-// Commander.js 命令行解析工具，用于创建命令行界面和处理命令参数
-import { program } from "commander";
-import chalk from "chalk";
-import inquirer from "inquirer";
+import { program } from "commander";// 用于创建命令行界面和处理命令参数
+import chalk from "chalk"; // 用于在命令行中添加颜色和样式
+
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import fs from 'node:fs';
 
 import templates from "../lib/templates.js";
-import create from "../lib/create.js"; // 显式添加 .js 后缀，不然tsc编译后的代码会报错
+import create from "../lib/create.js"; // 显式添加 .js 后缀，不然tsc编译后的代码执行会报错
 
 // 获取当前模块的目录
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // 读取 package.json
 const packageJsonPath = join(__dirname, '../../package.json');
@@ -22,35 +20,15 @@ const packageJson = JSON.parse(
 );
 
 program
+  .name('hmf-cli')
+  .description('HMF 模板项目脚手架')
   .version(packageJson.version, '-v, --version', 'output the current version')
-  .parse(process.argv);
 
 program
-  .command("create [project-name]")
-  .description("创建新项目")
-  .option("-t, --template <template>", "指定模板")
-  .action(async (projectName: string | undefined, options: { template?: string }) => {
-    // 如果没有传入项目名称，则交互式询问
-    if (!projectName) {
-      const { inputProjectName } = await inquirer.prompt([
-        {
-          type: 'input',
-          name: 'inputProjectName',
-          message: '项目名称:',
-          validate: (input) => {
-            // 校验项目名称
-            if (!input) return '项目名称不能为空';
-            if (!/^[a-z0-9-]+$/.test(input)) return '项目名称只能包含小写字母、数字和连字符';
-            return true;
-          }
-        }
-      ]);
-      projectName = inputProjectName;
-    }
-
-    // 执行创建项目
-    create(projectName!, options);
-  });
+  .command('create <project-name>')
+  .description('创建新项目')
+  .option('-t, --template <template>', '指定项目模板')
+  .action(create)
 
 program
   .command("list")
