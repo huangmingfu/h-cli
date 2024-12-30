@@ -1,5 +1,11 @@
 # hmf-cli
 
+## 1.0.8
+
+### Patch Changes
+
+- 修复克隆部分模板失败等的问题
+
 ## 1.0.7
 
 ### Patch Changes

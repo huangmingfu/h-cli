@@ -8,7 +8,7 @@ function des(middle: string, after?: string) {
 export default [
   // 我的项目
   {
-    name: 'vue-ts-template',
+    name: 'vue3-ts-template',
     value: 'huangmingfu/vue3-ts-template',
     description: des('vue3.5 + pinia + vueuse'),
     type: 'vue'
@@ -20,8 +20,8 @@ export default [
     type: 'vue-mini'
   },
   {
-    name: 'vue-js-template',
-    value: 'huangmingfu/vue-js-template',
+    name: 'vue3-js-template',
+    value: 'huangmingfu/vue3-js-template',
     description: des('vue3.5', 'js'),
     type: 'vue-js'
   },

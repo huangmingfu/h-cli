@@ -14,6 +14,7 @@ import ora from 'ora';
 import templates from './templates.js';
 // Node.js 子进程模块，用于执行系统命令
 import { execSync } from 'node:child_process';
+import { rimraf } from 'rimraf';
 
 function downloadRepo(repo: string, dest: string): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -85,7 +86,8 @@ async function create(projectName: string, options: { template?: string }): Prom
 
     if (action === 'cancel') return;
     if (action === 'overwrite') {
-      await fs.remove(targetDir);
+      // await fs.remove(targetDir); // 报错
+      rimraf(targetDir)
     }
   }
 
