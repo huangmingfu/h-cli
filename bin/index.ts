@@ -9,6 +9,7 @@ import fs from 'node:fs';
 
 import templates from "../lib/templates.js";
 import create from "../lib/create.js"; // 显式添加 .js 后缀，不然tsc编译后的代码执行会报错
+import cloneRepos from "../lib/clone.js";
 
 // 获取当前模块的目录
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -39,5 +40,14 @@ program
       console.log(`- ${template.name} (${chalk.yellow(template.type)})`);
     });
   });
+
+program
+  .command('clone')
+  .description('批量克隆 GitHub 仓库')
+  .option('-c, --config <path>', '指定配置文件路径', 'hmf-repos.json')
+  .option('-u, --username <username>', '指定 GitHub 用户名', 'huangmingfu')
+  .option('-r, --repos <repos...>', '直接指定要克隆的仓库名称（多个用空格分隔）')
+  .option('-d, --dir <directory>', '指定克隆到的目录')
+  .action(cloneRepos);
 
 program.parse(process.argv);
