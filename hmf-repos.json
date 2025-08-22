@@ -1,6 +1,9 @@
 {
   "username": "huangmingfu",
   "repos": [
+    "ts-utils",
+    "react-common",
+    "vue3-common",
     "vue3-ts-template",
     "vue3-mini-template",
     "react-ts-template",
